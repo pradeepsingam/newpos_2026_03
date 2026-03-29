@@ -12,7 +12,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('business_id')->constrained()->cascadeOnDelete();
             $table->foreignId('plugin_id')->constrained()->cascadeOnDelete();
-            $table->string('status')->default('inactive');
+            $table->string('status', 50)->default('inactive');
             $table->string('installed_version')->nullable();
             $table->timestamp('activated_at')->nullable();
             $table->timestamps();
