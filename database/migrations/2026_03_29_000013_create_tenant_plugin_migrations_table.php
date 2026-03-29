@@ -16,7 +16,7 @@ return new class extends Migration
             $table->timestamp('ran_at');
             $table->timestamps();
 
-            $table->unique(['business_id', 'plugin_version_id', 'migration']);
+            $table->unique(['business_id', 'plugin_version_id', 'migration'], 'tenant_plg_migs_unique');
         });
     }
 
