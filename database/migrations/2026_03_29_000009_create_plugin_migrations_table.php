@@ -11,7 +11,7 @@ return new class extends Migration
         Schema::create('plugin_migrations', function (Blueprint $table) {
             $table->id();
             $table->foreignId('plugin_id')->constrained()->cascadeOnDelete();
-            $table->string('version');
+            $table->string('version', 191);
             $table->string('migration_path')->nullable();
             $table->timestamp('ran_at');
             $table->timestamps();

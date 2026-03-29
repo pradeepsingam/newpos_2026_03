@@ -11,8 +11,8 @@ return new class extends Migration
         Schema::create('plugins', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('slug')->unique();
-            $table->string('version');
+            $table->string('slug', 191)->unique();
+            $table->string('version', 191);
             $table->text('description')->nullable();
             $table->string('package_path');
             $table->json('manifest');

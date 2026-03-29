@@ -12,7 +12,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('business_id')->constrained()->cascadeOnDelete();
             $table->foreignId('plugin_version_id')->constrained()->cascadeOnDelete();
-            $table->string('migration');
+            $table->string('migration', 191);
             $table->timestamp('ran_at');
             $table->timestamps();
 

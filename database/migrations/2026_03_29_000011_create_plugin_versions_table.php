@@ -11,7 +11,7 @@ return new class extends Migration
         Schema::create('plugin_versions', function (Blueprint $table) {
             $table->id();
             $table->foreignId('plugin_id')->constrained()->cascadeOnDelete();
-            $table->string('version');
+            $table->string('version', 191);
             $table->string('provider_class');
             $table->string('package_path');
             $table->string('package_checksum');
