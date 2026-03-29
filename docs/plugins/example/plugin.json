@@ -1,0 +1,19 @@
+{
+  "name": "Loyalty Rewards",
+  "slug": "loyalty-rewards",
+  "version": "2.0.0",
+  "description": "Adds a tenant-isolated loyalty module for repeat customers.",
+  "provider": "Plugins\\LoyaltyRewards\\LoyaltyRewardsServiceProvider",
+  "route_prefix": "loyalty",
+  "signature": "BASE64_SIGNATURE_HERE",
+  "paths": {
+    "providers": "app/Providers",
+    "routes": "routes/web.php",
+    "views": "resources/views",
+    "migrations": "database/migrations"
+  },
+  "tables": [
+    "customers",
+    "reward_ledger"
+  ]
+}
