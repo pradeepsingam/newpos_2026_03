@@ -10,14 +10,20 @@ class PluginRuntimeRegistry
 {
     public static function bootApprovedProviders(): void
     {
-        if (! Schema::hasTable('plugin_versions')) {
+        try {
+            if (! Schema::hasTable('plugin_versions')) {
+                return;
+            }
+
+            $pluginVersions = PluginVersion::query()
+                ->where('is_approved', true)
+                ->with('plugin')
+                ->get();
+        } catch (Throwable) {
             return;
         }
 
-        PluginVersion::query()
-            ->where('is_approved', true)
-            ->with('plugin')
-            ->get()
+        $pluginVersions
             ->each(function (PluginVersion $pluginVersion): void {
                 try {
                     $manifest = PluginManifest::fromFile($pluginVersion->package_path . DIRECTORY_SEPARATOR . 'plugin.json');
